@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SO X | سوق الكروت الرقمية</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--tx:#161a2b;--mu:#5d6480;--pr:#5b4bff;--pr2:#8a5cff;--bd:#e3e6f2;--ok:#12a36b;--bad:#d93a4a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1020;--card:#171a30;--tx:#eef0ff;--mu:#9aa1c4;--bd:#2a2e4d}}
+:root[data-theme="dark"]{--bg:#0e1020;--card:#171a30;--tx:#eef0ff;--mu:#9aa1c4;--bd:#2a2e4d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Cairo","Segoe UI",Tahoma,sans-serif;line-height:1.7}
+.w{max-width:960px;margin:auto;padding:0 16px}
+header{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:8px;flex-wrap:wrap}
+.logo{font-weight:800;font-size:22px;background:linear-gradient(90deg,var(--pr),var(--pr2));-webkit-background-clip:text;background-clip:text;color:transparent}
+button,.btn{font:inherit;cursor:pointer;border:0;border-radius:12px;padding:9px 16px;background:linear-gradient(90deg,var(--pr),var(--pr2));color:#fff;font-weight:700;text-decoration:none;display:inline-block}
+.ghost{background:transparent;color:var(--tx);border:1px solid var(--bd)}
+.hero{text-align:center;padding:30px 0 16px}.hero h1{font-size:28px;margin:0 0 8px}.hero p{color:var(--mu);max-width:560px;margin:0 auto 16px}
+h2{font-size:21px;margin:30px 0 12px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.step,.box,.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:16px}
+.step b{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--pr);color:#fff;margin-bottom:6px}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:12px}
+.plan{border:2px solid var(--bd);border-radius:14px;padding:12px;text-align:center;cursor:pointer;background:var(--bg)}.plan.on{border-color:var(--pr)}
+.plan b{display:block;font-size:22px}.plan small{color:var(--mu);display:block}.plan em{font-style:normal;color:var(--ok);font-size:12px}
+.stats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.stats div{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:8px 16px;font-size:13px;color:var(--mu)}.stats b{display:block;font-size:20px;color:var(--tx)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.img{height:120px;border-radius:12px;background:linear-gradient(135deg,var(--pr),var(--pr2));display:grid;place-items:center;color:#fff;font-weight:800;overflow:hidden;margin-bottom:10px}.img img{width:100%;height:100%;object-fit:cover}
+.tag{display:inline-block;font-size:12px;padding:2px 10px;border-radius:99px;border:1px solid var(--bd);color:var(--mu)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px}.price{font-size:20px;font-weight:800}
+input,select,textarea{width:100%;font:inherit;padding:10px;border-radius:10px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);margin:4px 0 10px}
+label{font-size:14px;color:var(--mu)}.note{font-size:13px;color:var(--mu)}.ok{color:var(--ok)}.bad{color:var(--bad)}
+dialog{border:1px solid var(--bd);border-radius:18px;background:var(--card);color:var(--tx);max-width:420px;width:92%}dialog::backdrop{background:#0008}
+.num{font-size:22px;font-weight:800;letter-spacing:1px;direction:ltr;text-align:center;padding:8px;border:1px dashed var(--pr);border-radius:12px;margin:8px 0}
+details{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px 14px;margin:8px 0}summary{cursor:pointer;font-weight:700}
+.li{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--bd);font-size:14px}
+footer{margin:40px 0 20px;padding-top:16px;border-top:1px solid var(--bd);text-align:center;font-size:13px;color:var(--mu)}
+.hide{display:none}
+</style>
+</head>
+<body>
+<div class="w">
+<header><span class="logo">SO X</span>
+<span id="auth"><button id="bLogin">دخول / تسجيل</button></span>
+<span id="acct" class="hide note"></span></header>
+
+<section class="hero"><h1>سوق الكروت الرقمية الواضح والآمن</h1>
+<p>اعرض كروتك بصور حقيقية وسعر ووصف صادق، أو اشترِ وأنت تعرف بالضبط ماذا تشتري ومن البائع.</p>
+<a class="btn" href="#plansec">ابدأ الآن</a> <a class="btn ghost" href="#gallery">تصفّح الكروت</a></section>
+
+<div class="stats"><div><b id="s1">0</b>كروت منشورة</div><div><b id="s2">0</b>كروت مباعة</div><div><b id="s3">0</b>بائعون مشتركون</div></div>
+
+<h2>ابدأ في 4 خطوات</h2>
+<div class="steps"><div class="step"><b>1</b>سجّل حسابك</div><div class="step"><b>2</b>اشترك: الشهر الأول 10 جنيه فقط</div><div class="step"><b>3</b>انشر كارتك بصورة ووصف حقيقي</div><div class="step"><b>4</b>يصلك الإشعار عند كل عملية بيع</div></div>
+
+<h2 id="plansec">الاشتراك</h2>
+<div class="box"><div class="plans" id="plans"></div>
+<button id="subBtn">اشترك الآن</button>
+<p class="note">الأسعار ثابتة ومعروضة قبل الدفع، والإلغاء متاح في أي وقت. نأخذ عمولة 4% على كل كارت يتباع، وأول عملية بيع لك بدون عمولة. ادعُ صديقًا بكودك واحصل على أسبوع مجاني عند اشتراكه.</p></div>
+
+<h2 id="gallery">معرض الكروت</h2>
+<div class="grid" id="grid"></div>
+
+<div id="mine" class="hide">
+<h2>انشر كارتًا للبيع</h2>
+<div class="box">
+<label>نوع الكارت</label><select id="ctype"><option>كارت شحن موبايل</option><option>كارت ألعاب</option><option>كارت هدايا</option><option>كارت اشتراك</option><option>أخرى</option></select>
+<label>اسم الكارت</label><input id="cname" maxlength="60">
+<label>السعر بالجنيه</label><input id="cprice" type="number" min="1">
+<label>الوصف الحقيقي (القيمة، الصلاحية، طريقة الاستلام)</label><textarea id="cdesc" rows="3" maxlength="300"></textarea>
+<label>صورة الكارت (واضحة وغير معدّلة)</label><input id="cimg" type="file" accept="image/*">
+<label><input type="checkbox" id="agree" style="width:auto;margin:0 0 0 6px">أقرّ أن بيانات الكارت صحيحة وأوافق على الشروط</label><br><br>
+<button id="pub">نشر الكارت</button> <span id="msg" class="note"></span></div>
+<h2>طلباتي</h2><div class="box" id="orders"></div>
+</div>
+
+<div id="adm" class="hide"><h2>لوحة الإدارة</h2><div class="box">
+<b>طلبات دفع بانتظار التأكيد</b><div id="aord"></div>
+<b>آخر البلاغات</b><div id="arep"></div>
+<label>حظر مستخدم برقمه</label><input id="banid" type="number"><button id="banb" class="ghost">حظر</button></div></div>
+
+<h2>الشروط والخصوصية</h2>
+<details><summary>الشروط والأحكام</summary><p class="note">البائع مسؤول عن صحة بيانات الكارت وصورته. يُمنع نشر كروت مسروقة أو مستعملة أو مزيفة. تحتفظ المنصة بحق حذف أي إعلان مخالف وإيقاف الحساب.</p></details>
+<details><summary>سياسة الخصوصية</summary><p class="note">نجمع الاسم والبريد فقط لتشغيل الحساب ولا نبيعهما لأي طرف. كلمات المرور مشفّرة.</p></details>
+<details><summary>الاسترجاع والنزاعات</summary><p class="note">إن كان الكارت غير مطابق للوصف افتح بلاغًا خلال 24 ساعة من الشراء، وتراجعه الإدارة وتعيد المبلغ عند ثبوت المخالفة.</p></details>
+<footer>© SO X — جميع الحقوق محفوظة</footer>
+</div>
+
+<dialog id="dAuth"><h3 id="aT">دخول</h3>
+<div id="nmW"><label>الاسم</label><input id="nm"></div>
+<label>البريد الإلكتروني</label><input id="em" type="email">
+<label>كلمة المرور (8 أحرف على الأقل)</label><input id="pw" type="password">
+<div id="invW"><label>كود دعوة (اختياري)</label><input id="inv"></div>
+<p id="aMsg" class="note bad"></p>
+<div class="row"><button id="aGo">متابعة</button><button class="ghost" id="aSw">إنشاء حساب</button><button class="ghost" id="aX">إغلاق</button></div></dialog>
+
+<dialog id="dPay"><h3>إتمام الدفع</h3><div id="pBody"></div>
+<label>رقم هاتفك الذي حوّلت منه</label><input id="pPh" inputmode="numeric" maxlength="11" placeholder="01XXXXXXXXX">
+<p id="pMsg" class="note"></p>
+<div class="row"><button id="pGo">تم التحويل</button><button class="ghost" id="pX">إغلاق</button></div></dialog>
+
+<script>
+var $=function(i){return document.getElementById(i)};
+function esc(s){var d=document.createElement('div');d.textContent=s==null?'':s;return d.innerHTML}
+function api(p,b){var o={credentials:'same-origin'};if(b!==undefined){o.method='POST';o.headers={'Content-Type':'application/json'};o.body=JSON.stringify(b)}
+return fetch(p,o).then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.error||'حدث خطأ');return j})})}
+var me=null,plans={},sel='trial',cur=null,reg=false,ST={pending:'بانتظار التحويل',awaiting_review:'قيد التأكيد',paid:'مدفوع',expired:'منتهي'};
+
+function ui(){var l=!!me;$('auth').classList.toggle('hide',l);$('acct').classList.toggle('hide',!l);$('mine').classList.toggle('hide',!l);$('adm').classList.toggle('hide',!(me&&me.role==='admin'));
+if(l){var s=me.sub_until&&new Date(me.sub_until)>new Date()?'اشتراكك ساري حتى '+new Date(me.sub_until).toLocaleDateString('ar-EG'):'غير مشترك';
+$('acct').innerHTML='أهلًا '+esc(me.name)+' · '+s+' · كود دعوتك: <b>'+esc(me.ref_code)+'</b> <button class="ghost" id="bOut">خروج</button>';
+$('bOut').onclick=function(){api('/api/logout',{}).then(loadMe)};loadOrders();if(me.role==='admin')loadAdmin();}
+rp()}
+function loadMe(){return api('/api/me').then(function(m){me=m}).catch(function(){me=null}).then(ui)}
+function rp(){var P=$('plans');P.innerHTML='';Object.keys(plans).forEach(function(k){var x=plans[k];if(k==='trial'&&me&&me.sub_until)return;
+var d=document.createElement('div');d.className='plan'+(k===sel?' on':'');d.innerHTML='<span>'+esc(x.label)+'</span><b>'+x.price+' ج</b><small>'+x.days+' يوم</small>';
+d.onclick=function(){sel=k;rp()};P.appendChild(d)})}
+function loadCards(){api('/api/cards').then(function(a){var g=$('grid');g.innerHTML=a.length?'':'<p class="note">لا توجد كروت منشورة بعد. كن أول من ينشر.</p>';
+a.forEach(function(c){var e=document.createElement('div');e.className='card';
+e.innerHTML='<div class="img"><img alt="'+esc(c.name)+'" src="'+c.image+'"></div><b>'+esc(c.name)+'</b><br><span class="tag">'+esc(c.type)+'</span> <span class="note">البائع: '+esc(c.seller)+'</span><p class="note">'+esc(c.descr)+'</p><div class="row"><span class="price">'+Number(c.price)+' ج</span><span><button data-b="'+c.id+'">شراء</button> <button class="ghost" data-r="'+c.id+'">إبلاغ</button></span></div>';g.appendChild(e)})})}
+function loadStats(){api('/api/stats').then(function(s){$('s1').textContent=s.active_cards;$('s2').textContent=s.sold_cards;$('s3').textContent=s.sellers})}
+function loadOrders(){api('/api/my/orders').then(function(a){$('orders').innerHTML=a.length?a.map(function(o){return'<div class="li"><span>'+esc(o.ref)+' · '+(o.kind==='subscription'?'اشتراك':'شراء كارت')+'</span><span>'+o.amount+' ج · '+(ST[o.status]||esc(o.status))+'</span></div>'}).join(''):'<p class="note">لا توجد طلبات.</p>'})}
+function loadAdmin(){api('/api/admin/orders').then(function(a){$('aord').innerHTML=a.map(function(o){return'<div class="li"><span>'+esc(o.ref)+' · '+o.amount+' ج · '+esc(o.sender_phone||'-')+'</span><button data-c="'+esc(o.ref)+'">تأكيد</button></div>'}).join('')||'<p class="note">لا يوجد.</p>'});
+api('/api/admin/reports').then(function(a){$('arep').innerHTML=a.map(function(r){return'<div class="li"><span>'+esc(r.name)+' (بائع '+r.seller_id+')</span><span class="note">'+esc(r.reason)+'</span></div>'}).join('')||'<p class="note">لا يوجد.</p>'})}
+
+function openPay(o){cur=o;$('pBody').innerHTML='<p>حوّل <b>'+o.amount+' جنيه</b> عبر فودافون كاش إلى:</p><div class="num">'+esc(o.pay_to.number)+'</div><p class="note">باسم: '+esc(o.pay_to.name||'')+'<br>كود طلبك: <b>'+esc(o.ref)+'</b></p><p class="note">بعد التحويل أدخل رقم هاتفك واضغط «تم التحويل». يتم التأكيد تلقائيًا فور وصول التحويل.</p>';$('pMsg').textContent='';$('dPay').showModal()}
+$('pGo').onclick=function(){api('/api/orders/'+cur.ref+'/paid',{sender_phone:$('pPh').value.trim()}).then(function(r){$('pMsg').className='note ok';$('pMsg').textContent=r.message;setTimeout(function(){loadMe();loadStats();loadCards()},4000)}).catch(function(e){$('pMsg').className='note bad';$('pMsg').textContent=e.message})};
+$('pX').onclick=function(){$('dPay').close()};
+$('subBtn').onclick=function(){if(!me){openAuth(true);return}api('/api/subscribe',{plan:sel}).then(openPay).catch(function(e){alert(e.message)})};
+$('grid').onclick=function(e){var b=e.target.dataset.b,r=e.target.dataset.r;if(!b&&!r)return;if(!me){openAuth(false);return}
+if(b)api('/api/buy/'+b,{}).then(openPay).catch(function(x){alert(x.message)});
+if(r)api('/api/cards/'+r+'/report',{reason:prompt('سبب البلاغ؟')||''}).then(function(){e.target.textContent='تم الإبلاغ';e.target.disabled=true})};
+$('aord').onclick=function(e){if(e.target.dataset.c)api('/api/admin/orders/'+e.target.dataset.c+'/confirm',{}).then(loadAdmin).catch(function(x){alert(x.message)})};
+$('banb').onclick=function(){if($('banid').value&&confirm('تأكيد الحظر؟'))api('/api/admin/users/'+$('banid').value+'/ban',{}).then(function(){alert('تم الحظر');loadCards()})};
+
+function openAuth(r){reg=r;$('aT').textContent=r?'إنشاء حساب':'دخول';$('nmW').classList.toggle('hide',!r);$('invW').classList.toggle('hide',!r);$('aSw').textContent=r?'لدي حساب':'إنشاء حساب';$('aMsg').textContent='';$('dAuth').showModal()}
+$('bLogin').onclick=function(){openAuth(false)};$('aSw').onclick=function(){openAuth(!reg)};$('aX').onclick=function(){$('dAuth').close()};
+$('aGo').onclick=function(){var b={email:$('em').value,password:$('pw').value};if(reg){b.name=$('nm').value;b.invite=$('inv').value}
+api(reg?'/api/register':'/api/login',b).then(function(){$('dAuth').close();loadMe()}).catch(function(e){$('aMsg').textContent=e.message})};
+
+function shrink(f,cb){var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var s=Math.min(1,800/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);cb(c.toDataURL('image/jpeg',.8))};im.src=r.result};r.readAsDataURL(f)}
+$('pub').onclick=function(){var m=$('msg'),f=$('cimg').files[0];if(!f||!$('agree').checked){m.className='note bad';m.textContent='أرفق صورة ووافق على الإقرار.';return}
+shrink(f,function(img){api('/api/cards',{name:$('cname').value,type:$('ctype').value,price:Number($('cprice').value),descr:$('cdesc').value,image:img}).then(function(){m.className='note ok';m.textContent='تم نشر الكارت.';$('cname').value=$('cprice').value=$('cdesc').value='';$('cimg').value='';$('agree').checked=false;loadCards();loadStats()}).catch(function(e){m.className='note bad';m.textContent=e.message})})};
+
+var q=new URLSearchParams(location.search).get('invite');if(q)$('inv').value=q;
+api('/api/plans').then(function(p){plans=p.plans;rp()});loadMe();loadCards();loadStats();
+</script>
+</body>
+</html>
